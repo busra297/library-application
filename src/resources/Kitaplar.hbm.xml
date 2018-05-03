@@ -1,0 +1,38 @@
+
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 12.Nis.2018 16:06:30 by Hibernate Tools 5.2.8.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="kutuphane" dynamic-insert="false" dynamic-update="false" mutable="true" name="resources.Kitaplar" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="Kitaplar">
+        <id name="kitapId" type="int">
+            <column name="Kitap_ID"/>
+            <generator class="assigned"/>
+        </id>
+        <many-to-one class="resources.Uyeler" embed-xml="true" fetch="select" insert="true" name="uyeler" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="Uye_TC" not-null="true"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="kitapAdi" optimistic-lock="true" type="string" unique="false">
+            <column name="Kitap_Adi" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="kitapYazari" optimistic-lock="true" type="string" unique="false">
+            <column name="Kitap_Yazari"/>
+        </property>
+        <property generated="never" lazy="false" name="kitapSayfaSayisi" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="Kitap_SayfaSayisi"/>
+        </property>
+        <property generated="never" lazy="false" name="kitapVerilisTarihi" optimistic-lock="true" type="date" unique="false">
+            <column length="10" name="Kitap_Verilis_Tarihi" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="kitapAlisTarihi" optimistic-lock="true" type="date" unique="false">
+            <column length="10" name="Kitap_Alis_Tarihi"/>
+        </property>
+        <property generated="never" lazy="false" name="kitapUyedeMi" optimistic-lock="true" type="java.lang.Boolean" unique="false">
+            <column name="Kitap_Uyede_Mi"/>
+        </property>
+        
+      <!-- <property generated="never" lazy="false" name="kitapYayinEvi" optimistic-lock="true" type="string" unique="false">
+           <column name="Kitap_Yayin_Evi"/>
+           
+           <property generated="never" lazy="false" name="kitapresmi" optimistic-lock="true" type="string" unique="false">
+           <column name="Kitap_Resmi"/> -->  
+    </class>
+</hibernate-mapping>

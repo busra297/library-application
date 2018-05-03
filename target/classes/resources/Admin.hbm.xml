@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 12.Nis.2018 16:06:30 by Hibernate Tools 5.2.8.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="kutuphane" dynamic-insert="false" dynamic-update="false" mutable="true" name="resources.Admin" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="Admin">
+        <id name="adminId" type="int">
+            <column name="AdminID"/>
+            <generator class="assigment"/>
+        </id>
+        <property generated="never" lazy="false" name="adminAdi" optimistic-lock="true" type="string" unique="false">
+            <column name="Admin_Adi"/>
+        </property>
+        <property generated="never" lazy="false" name="adminSoyadi" optimistic-lock="true" type="string" unique="false">
+            <column name="Admin_Soyadi"/>
+        </property>
+        <property generated="never" lazy="false" name="adminEposta" optimistic-lock="true" type="string" unique="false">
+            <column name="Admin_EPosta"/>
+        </property>
+        <property generated="never" lazy="false" name="adminSifre" optimistic-lock="true" type="string" unique="false">
+            <column name="Admin_Sifre"/>
+        </property>
+        <property generated="never" lazy="false" name="adminAdres" optimistic-lock="true" type="string" unique="false">
+            <column name="Admin_Adres"/>
+        </property>
+    </class>
+</hibernate-mapping>

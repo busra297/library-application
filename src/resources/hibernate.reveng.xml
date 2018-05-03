@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.org/dtd/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+  <table-filter match-catalog="kutuphane" match-schema="dbo" match-name="Admin"/>
+  <table-filter match-catalog="kutuphane" match-schema="dbo" match-name="Kitaplar"/>
+  <table-filter match-catalog="kutuphane" match-schema="dbo" match-name="Uyeler"/>
+</hibernate-reverse-engineering>

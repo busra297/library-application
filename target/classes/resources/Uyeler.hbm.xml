@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 12.Nis.2018 16:06:30 by Hibernate Tools 5.2.8.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="kutuphane" dynamic-insert="false" dynamic-update="false" mutable="true" name="resources.Uyeler" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="Uyeler">
+        <id name="uyeTc" type="int">
+            <column name="Uye_TC"/>
+            <generator class="assigned"/>
+        </id>
+        <property generated="never" lazy="false" name="uyeAdi" optimistic-lock="true" type="string" unique="false">
+            <column name="Uye_Adi"/>
+        </property>
+        <property generated="never" lazy="false" name="uyeSoyadi" optimistic-lock="true" type="string" unique="false">
+            <column name="Uye_Soyadi"/>
+               <property generated="never" lazy="false" name="uyeEMail" optimistic-lock="true" type="string" unique="false">
+            <column name="Uye_EMail"/>
+        </property>
+        <property generated="never" lazy="false" name="uyeTelefon" optimistic-lock="true" type="string" unique="false">
+            <column name="Uye_Telefon"/>
+        </property>
+        <property generated="never" lazy="false" name="uyeAdres" optimistic-lock="true" type="string" unique="false">
+            <column name="Uye_Adres"/>
+        </property>
+        <property generated="never" lazy="false" name="uyeBa�langicTarihi" optimistic-lock="true" type="date" unique="false">
+            <column length="10" name="Uye_Ba�langic_Tarihi"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="kitaplars" optimistic-lock="true" sort="unsorted" table="Kitaplar">
+            <key on-delete="noaction">
+                <column name="Uye_TC" not-null="true"/>
+            </key>
+            <one-to-many class="resources.Kitaplar" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

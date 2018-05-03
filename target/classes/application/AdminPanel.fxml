@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.media.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.event.ActionEvent?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="800.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.AdminPanelController">
+   <children>
+      <MenuBar cacheHint="SCALE" layoutX="1.0" prefHeight="38.0" prefWidth="916.0" style="-fx-background-color: #b3bdbd;">
+        <menus>
+          <Menu mnemonicParsing="false" text="Kitaplar">
+               <items>
+                  <MenuItem fx:id="menuithomepage" mnemonicParsing="false" onAction="#handleButtonAction" text="Kitap Ver" />
+                  <MenuItem fx:id="menuitbookreturn" mnemonicParsing="false" onAction="#handleButtonAction" text="Kitap İade" />
+                  <MenuItem fx:id="menuitbookadd" mnemonicParsing="false" onAction="#handleButtonAction" text="Kitap Ekle" />
+                  <MenuItem fx:id="menuitbooklist" mnemonicParsing="false" onAction="#handleButtonAction" text="Kitap Listele" />
+               </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Üyeler">
+            <items>
+              <MenuItem fx:id="menuitmemberadd" mnemonicParsing="false" onAction="#handleButtonAction" text="Üye Ekle" />
+                  <MenuItem fx:id="menuitmemberlist" mnemonicParsing="false" onAction="#handleButtonAction" text="Üye Listele" />
+            </items>
+          </Menu>
+          <Menu fx:id="menuexit" mnemonicParsing="false" text="Ayarlar">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#Exitt" text="Çıkış" />
+               </items></Menu>
+        </menus>
+         <contextMenu>
+            <ContextMenu />
+         </contextMenu>
+      </MenuBar>
+      <AnchorPane fx:id="anchorphomepage" layoutX="3.0" layoutY="39.0" prefHeight="782.0" prefWidth="912.0" style="-fx-background-color: #dce3e5;" visible="false">
+         <children>
+            <ImageView fx:id="imgVselected1bookimage" fitHeight="150.0" fitWidth="136.0" layoutX="256.0" layoutY="126.0" pickOnBounds="true" preserveRatio="true" />
+            <TextField fx:id="txtbooksearch" alignment="CENTER" layoutX="254.0" layoutY="39.0" nodeOrientation="LEFT_TO_RIGHT" onKeyPressed="#SearchOperations" prefHeight="25.0" prefWidth="187.0" />
+            <Label layoutX="45.0" layoutY="43.0" prefHeight="17.0" prefWidth="195.0" text="Kitap İsmine veya Koduna Göre Ara:" />
+            <ImageView fitHeight="20.0" fitWidth="33.0" layoutX="260.0" layoutY="42.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@picture/icons8-search-26.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="481.0" layoutY="44.0" prefHeight="17.0" prefWidth="153.0" text="Kullanıcı Koduna Göre Ara:" />
+            <TextField fx:id="txtmembersearch" alignment="CENTER" layoutX="650.0" layoutY="39.0" nodeOrientation="LEFT_TO_RIGHT" onKeyPressed="#SearchOperations" prefHeight="25.0" prefWidth="187.0" />
+            <ImageView fitHeight="20.0" fitWidth="33.0" layoutX="656.0" layoutY="42.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@picture/icons8-search-26.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="imgVselected2bookimage" fitHeight="150.0" fitWidth="136.0" layoutX="256.0" layoutY="282.0" pickOnBounds="true" preserveRatio="true" />
+            <Label fx:id="lblselected2bookname" layoutX="107.0" layoutY="327.0" prefHeight="17.0" prefWidth="119.0" />
+            <Label fx:id="lblselected3bookname" layoutX="107.0" layoutY="499.0" prefHeight="17.0" prefWidth="119.0" />
+            <ImageView fx:id="imgVselected3bookimage" fitHeight="150.0" fitWidth="136.0" layoutX="256.0" layoutY="441.0" pickOnBounds="true" preserveRatio="true" />
+            <Label fx:id="lblsmembertc" layoutX="612.0" layoutY="160.0" prefHeight="17.0" prefWidth="74.0" text="Üye TC:" visible="false" />
+            <Label fx:id="lblsmembername" layoutX="612.0" layoutY="209.0" prefHeight="17.0" prefWidth="74.0" text="Üye İsmi:" visible="false" />
+            <Label fx:id="lblsmembersurname" layoutX="612.0" layoutY="262.0" prefHeight="17.0" prefWidth="74.0" text="Üye Soy İsmi:" visible="false" />
+            <Label fx:id="lblselectedmembertc" layoutX="711.0" layoutY="160.0" prefHeight="17.0" prefWidth="136.0" />
+            <Label fx:id="lblselectedmembername" layoutX="711.0" layoutY="209.0" prefHeight="17.0" prefWidth="126.0" />
+            <Label fx:id="lblselectedmembersurname" layoutX="711.0" layoutY="262.0" prefHeight="17.0" prefWidth="126.0" />
+            <Button fx:id="btnbooksgivemember" layoutX="612.0" layoutY="420.0" mnemonicParsing="false" onAction="#BooksGiveMember" prefHeight="25.0" prefWidth="238.0" style="-fx-background-color: BC8F8F;" text="İşlemi Tamamla" visible="false" />
+            <Button fx:id="btnselected2delete" layoutX="406.0" layoutY="282.0" mnemonicParsing="false" onAction="#SelectedBookDelete" prefHeight="17.0" prefWidth="17.0" text="Button" visible="false">
+               <effect>
+                  <ImageInput>
+                     <source>
+                        <Image url="file:/C:/Users/ACER/Downloads/icons8-delete-16.png" />
+                     </source>
+                  </ImageInput>
+               </effect>
+            </Button>
+            <Button fx:id="btnselected3delete" layoutX="406.0" layoutY="441.0" mnemonicParsing="false" onAction="#SelectedBookDelete" prefHeight="17.0" prefWidth="17.0" text="Button" visible="false">
+               <effect>
+                  <ImageInput>
+                     <source>
+                        <Image url="file:/C:/Users/ACER/Downloads/icons8-delete-16.png" />
+                     </source>
+                  </ImageInput>
+               </effect>
+            </Button>
+            <Button fx:id="btnselected1delete" layoutX="406.0" layoutY="126.0" mnemonicParsing="false" onAction="#SelectedBookDelete" prefHeight="8.0" prefWidth="20.0" text="Button" visible="false">
+               <effect>
+                  <ImageInput>
+                     <source>
+                        <Image url="file:/C:/Users/ACER/Downloads/icons8-delete-16.png" />
+                     </source>
+                  </ImageInput>
+               </effect>
+            </Button>
+            <Label fx:id="lblselected1bookname" layoutX="107.0" layoutY="201.0" prefHeight="17.0" prefWidth="119.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="anchorpbookadd" layoutX="1.0" layoutY="38.0" prefHeight="782.0" prefWidth="917.0" style="-fx-background-color: #dce3e5;" visible="false">
+         <children>
+            <Label layoutX="237.0" layoutY="355.0" prefHeight="17.0" prefWidth="93.0" text="Kitap Numarasi:" />
+            <Label layoutX="237.0" layoutY="395.0" prefHeight="17.0" prefWidth="93.0" text="Kitap Yazarı:" />
+            <Label layoutX="237.0" layoutY="435.0" prefHeight="17.0" prefWidth="93.0" text="Kitap Yayın Evi:" />
+            <Label layoutX="237.0" layoutY="478.0" prefHeight="17.0" prefWidth="126.0" text="Kitap Sayfa Sayısı:" />
+            <Label layoutX="237.0" layoutY="321.0" prefHeight="17.0" prefWidth="93.0" text="Kitap İsmi:" />
+            <TextField fx:id="txtbookaddname" layoutX="363.0" layoutY="309.0" prefHeight="25.0" prefWidth="263.0" />
+            <TextField fx:id="txtbookaddid" layoutX="363.0" layoutY="351.0" prefHeight="25.0" prefWidth="263.0" />
+            <TextField fx:id="txtbookaddauthor" layoutX="363.0" layoutY="391.0" prefHeight="25.0" prefWidth="263.0" />
+            <TextField fx:id="txtbookaddpublisher" layoutX="363.0" layoutY="431.0" prefHeight="25.0" prefWidth="263.0" />
+            <TextField fx:id="txtbookaddnumberpage" layoutX="363.0" layoutY="474.0" prefHeight="25.0" prefWidth="263.0" />
+            <Button fx:id="btnbookadd" layoutX="300.0" layoutY="531.0" mnemonicParsing="false" onAction="#BookAdd" prefHeight="25.0" prefWidth="195.0" style="-fx-background-color: #BC8F8F;" text="Kitap Ekle" />
+            <Button fx:id="btnbookaddimageupload" layoutX="431.0" layoutY="167.0" mnemonicParsing="false" onAction="#BookImageAdd" prefHeight="25.0" prefWidth="119.0" style="-fx-background-color: #BC8F8F;" text="Kitap Resmi Yükle" />
+            <ImageView fx:id="imgvbookaddimage" disable="true" fitHeight="218.0" fitWidth="176.0" layoutX="223.0" layoutY="56.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+               <viewport>
+                  <Rectangle2D />
+               </viewport></ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="anchorpbooklist" layoutX="-2.0" layoutY="37.0" prefHeight="782.0" prefWidth="917.0" style="-fx-background-color: #dce3e5;" visible="false">
+         <children>
+            <ScrollPane fx:id="scrolpbooklist" layoutX="-11.0" layoutY="11.0" prefHeight="746.0" prefWidth="911.0">
+               <content>
+                  <FlowPane fx:id="flowpbooklist" prefHeight="746.0" prefWidth="883.0">
+                     <padding>
+                        <Insets left="30.0" />
+                     </padding></FlowPane>
+               </content>
+            </ScrollPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="anchorpmemberadd" layoutX="-1.0" layoutY="39.0" prefHeight="782.0" prefWidth="917.0" style="-fx-background-color: #dce3e5;" visible="false">
+         <children>
+            <Label layoutX="269.0" layoutY="189.0" prefHeight="17.0" prefWidth="143.0" text="Kimlik Numarası: " />
+            <TextField fx:id="txtmembertc" layoutX="412.0" layoutY="185.0" prefHeight="25.0" prefWidth="214.0" />
+            <TextField fx:id="txtmembername" layoutX="412.0" layoutY="232.0" prefHeight="25.0" prefWidth="214.0" />
+            <Label layoutX="269.0" layoutY="232.0" prefHeight="17.0" prefWidth="66.0" text="İsim:" />
+            <TextField fx:id="txtmembersurname" layoutX="412.0" layoutY="278.0" prefHeight="25.0" prefWidth="214.0" />
+            <Label layoutX="269.0" layoutY="282.0" prefHeight="17.0" prefWidth="143.0" text="Soy İsim: " />
+            <TextField fx:id="txtmemberphone" layoutX="412.0" layoutY="328.0" prefHeight="25.0" prefWidth="214.0" />
+            <Label layoutX="269.0" layoutY="332.0" prefHeight="17.0" prefWidth="109.0" text="Telefon Numarası: " />
+            <Label layoutX="269.0" layoutY="437.0" prefHeight="17.0" prefWidth="86.0" text="Adres:" />
+            <TextField fx:id="txtmemberadress" layoutX="412.0" layoutY="433.0" prefHeight="25.0" prefWidth="214.0" />
+            <Button fx:id="btnmemberadd" layoutX="341.0" layoutY="499.0" mnemonicParsing="false" onAction="#MemberAdd" prefHeight="25.0" prefWidth="143.0" style="-fx-background-color: BC8F8F;" text="Üye Ekle" />
+            <TextField fx:id="txtmembereposta" layoutX="412.0" layoutY="379.0" prefHeight="25.0" prefWidth="214.0" />
+            <Label layoutX="269.0" layoutY="383.0" prefHeight="17.0" prefWidth="86.0" text="E Posta:" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="anchorpmemberlist" layoutX="3.0" layoutY="39.0" prefHeight="757.0" prefWidth="912.0" style="-fx-background-color: #dce3e5;" visible="false">
+         <children>
+            <TableView fx:id="tblvmemberlist" layoutX="3.0" layoutY="27.0" prefHeight="651.0" prefWidth="648.0" />
+            <Button fx:id="btnmemberdelete" layoutX="481.0" layoutY="698.0" mnemonicParsing="false" onAction="#MemberDelete" prefHeight="25.0" prefWidth="163.0" style="-fx-background-color: BC8F8F;" text="Üye Sil" />
+            <Button fx:id="btnmemberupdate" layoutX="265.0" layoutY="698.0" mnemonicParsing="false" onAction="#MemberUpdate" prefHeight="25.0" prefWidth="153.0" style="-fx-background-color: BC8F8F;" text="Güncelle" />
+            <AnchorPane fx:id="ancpmemberupdate" layoutX="651.0" layoutY="39.0" prefHeight="526.0" prefWidth="256.0" visible="false">
+               <children>
+                  <Label layoutX="25.0" layoutY="47.0" prefHeight="17.0" prefWidth="163.0" text="Üye Bilgileri Güncelleme">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtmemberupdatename" layoutX="76.0" layoutY="111.0" prefHeight="25.0" prefWidth="163.0" />
+                  <Label layoutX="21.0" layoutY="115.0" text="İsim:" />
+                  <TextField fx:id="txtmemberupdatesurname" layoutX="76.0" layoutY="158.0" prefHeight="25.0" prefWidth="163.0" />
+                  <Label layoutX="18.0" layoutY="162.0" text="Soy İsim:" />
+                  <Label layoutX="20.0" layoutY="208.0" text="Telefon:" />
+                  <TextField fx:id="txtmemberupdatephone" layoutX="76.0" layoutY="204.0" prefHeight="25.0" prefWidth="163.0" />
+                  <TextField fx:id="txtmemberupdateadress" layoutX="76.0" layoutY="302.0" prefHeight="25.0" prefWidth="163.0" />
+                  <Label layoutX="25.0" layoutY="306.0" text="Adres:" />
+                  <Button fx:id="btnmemberupdate2" layoutX="82.0" layoutY="359.0" mnemonicParsing="false" onAction="#MemberUpdate2" prefHeight="25.0" prefWidth="93.0" style="-fx-background-color: BC8F8F;" text="Güncelle" />
+                  <Label layoutX="21.0" layoutY="258.0" text="E Posta:" />
+                  <TextField fx:id="txtmemberupdateeposta" layoutX="76.0" layoutY="254.0" prefHeight="25.0" prefWidth="163.0" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="anchpbookreturn" layoutX="5.0" layoutY="39.0" prefHeight="782.0" prefWidth="911.0" style="-fx-background-color: #dce3e5;" visible="false">
+         <children>
+            <TextField fx:id="txtbookreturnmembersearch" layoutX="159.0" layoutY="30.0" onKeyPressed="#BookReturnSearchOperations" prefHeight="25.0" prefWidth="214.0" />
+            <Label layoutX="66.0" layoutY="34.0" prefHeight="17.0" prefWidth="93.0" text="Üye TC:" />
+            <Label fx:id="lblbookrmembersurname" layoutX="66.0" layoutY="247.0" prefHeight="17.0" prefWidth="74.0" text="Soy İsim:" visible="false" />
+            <Label fx:id="lblbookreturnmembername" layoutX="140.0" layoutY="198.0" prefHeight="17.0" prefWidth="169.0" />
+            <Label fx:id="lblbookreturnmembersurname" layoutX="140.0" layoutY="247.0" prefHeight="17.0" prefWidth="169.0" />
+            <Label fx:id="lblbookreturn1bookid" layoutX="409.0" layoutY="350.0" prefHeight="17.0" prefWidth="74.0" />
+            <Label fx:id="lblbookreturn1bookname" layoutX="456.0" layoutY="350.0" prefHeight="17.0" prefWidth="86.0" />
+            <ImageView fx:id="imgvbookreturn1bookimage" fitHeight="150.0" fitWidth="119.0" layoutX="419.0" layoutY="172.0" pickOnBounds="true" preserveRatio="true" />
+            <Button fx:id="btnbookreturn1bookdelete" layoutX="524.0" layoutY="160.0" mnemonicParsing="false" onAction="#SelectedBookDelete" prefHeight="11.0" prefWidth="24.0" text="Button" visible="false">
+               <effect>
+                  <ImageInput>
+                     <source>
+                        <Image url="file:/C:/Users/ACER/Downloads/icons8-delete-16.png" />
+                     </source>
+                  </ImageInput>
+               </effect>
+            </Button>
+            <Button fx:id="btnbookreturn2bookdelete" layoutX="662.0" layoutY="160.0" mnemonicParsing="false" onAction="#SelectedBookDelete" prefHeight="11.0" prefWidth="24.0" text="Button" visible="false">
+               <effect>
+                  <ImageInput>
+                     <source>
+                        <Image url="file:/C:/Users/ACER/Downloads/icons8-delete-16.png" />
+                     </source>
+                  </ImageInput>
+               </effect>
+            </Button>
+            <ImageView fx:id="imgvbookreturn2bookimage" fitHeight="150.0" fitWidth="119.0" layoutX="564.0" layoutY="172.0" pickOnBounds="true" preserveRatio="true" />
+            <Label fx:id="lblbookreturn2bookname" layoutX="600.0" layoutY="350.0" prefHeight="17.0" prefWidth="86.0" />
+            <Label fx:id="lblbookreturn2bookid" layoutX="557.0" layoutY="350.0" prefHeight="17.0" prefWidth="74.0" />
+            <Label fx:id="lblbookreturn3bookid" layoutX="695.0" layoutY="350.0" prefHeight="17.0" prefWidth="74.0" />
+            <Label fx:id="lblbookreturn3bookname" layoutX="744.0" layoutY="350.0" prefHeight="17.0" prefWidth="86.0" />
+            <ImageView fx:id="imgvbookreturn3bookimage" fitHeight="150.0" fitWidth="119.0" layoutX="703.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true" />
+            <Button fx:id="btnbookreturn3bookdelete" layoutX="812.0" layoutY="153.0" mnemonicParsing="false" onAction="#SelectedBookDelete" prefHeight="11.0" prefWidth="24.0" text="Button" visible="false">
+               <effect>
+                  <ImageInput>
+                     <source>
+                        <Image url="file:/C:/Users/ACER/Downloads/icons8-delete-16.png" />
+                     </source>
+                  </ImageInput>
+               </effect>
+            </Button>
+            <Button fx:id="btnbookreturn" layoutX="184.0" layoutY="535.0" mnemonicParsing="false" onAction="#BookReturn" prefHeight="53.0" prefWidth="119.0" style="-fx-background-color: BC8F8F;" text="İade Et" visible="false" />
+            <Label fx:id="lblbookrmembertc" layoutX="66.0" layoutY="298.0" prefHeight="17.0" prefWidth="59.0" text="TC:" visible="false" />
+            <Label fx:id="lblbookreturnmembertc" layoutX="140.0" layoutY="298.0" prefHeight="17.0" prefWidth="169.0" />
+            <Label fx:id="lbllbookrmembername" layoutX="66.0" layoutY="198.0" prefHeight="17.0" prefWidth="74.0" text="İsim:" visible="false" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

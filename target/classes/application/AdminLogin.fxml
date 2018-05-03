@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.event.ActionEvent?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.AdminLoginController">
+   <children>
+      <TextField fx:id="txtadminname" layoutX="151.0" layoutY="171.0" prefHeight="25.0" prefWidth="198.0" promptText="İsim" />
+      <TextField fx:id="txtadminsurname" layoutX="151.0" layoutY="220.0" prefHeight="25.0" prefWidth="198.0" promptText="Soy İsim" />
+      <CheckBox fx:id="cboxrmbme" layoutX="151.0" layoutY="321.0" mnemonicParsing="false" text=" Beni Hatırla" />
+      <Button fx:id="btnadminlogin" layoutX="146.0" layoutY="371.0" mnemonicParsing="false" onAction="#AdminLogin" prefHeight="25.0" prefWidth="204.0" style="-fx-background-color: BC8F8F;" text="Giriş Yap" />
+      <PasswordField fx:id="txtadminpassword" layoutX="151.0" layoutY="272.0" prefHeight="25.0" prefWidth="198.0" promptText="Şifre" />
+      <Label layoutX="229.0" layoutY="89.0" prefHeight="31.0" prefWidth="150.0" text="Kullanıcı Girişi" textFill="#390c0c">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="imgadminimage" fitHeight="78.0" fitWidth="86.0" layoutX="151.0" layoutY="66.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@picture/kullanicigiris.png" />
+         </image>
+      </ImageView>
+      <Hyperlink fx:id="hyplinknewaccount" layoutX="266.0" layoutY="318.0" onAction="#NewCreateAccount" text="Hesap Oluştur" />
+   </children>
+</AnchorPane>
